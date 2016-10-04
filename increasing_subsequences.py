@@ -3,10 +3,19 @@
 @author: evgeniy
 
 Given a sequence of integers to find all MAXIMAL increasing subsequences.
-A maximal increasing subsequence is a s
+A maximal increasing subsequence is an increasing subsequence which can not
+be enlarged to larger increasing subsequence of the original sequence.
 I use a tree structure where the root contains a Node value,
 all other nodes have a value corresponding to a value from  the
 original sequence.
+
+For example the sequence:  seq = [4,5,2,6,3,4,5]
+has the following subsequences:
+[4,5,6]
+[2,6]
+[2,3,4,5]
+
+Therefore the largest subsequence is of length 4
 """
 
 class Node(object):
@@ -85,7 +94,7 @@ class NodeHolder(Node):
             return [self.value] + last_seq
                                 
                 
-sequence = [4,5,2,6,3, 4,5]
+sequence = [4,5,2,6,3,4,5]
 res01 = NodeSeq(None, 0, sequence).splitSeq()
 res01.processNode()
 seq = res01.getLongestSubseq()[1:]
